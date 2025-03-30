@@ -23,7 +23,7 @@ function colourGen() {
 }
 
 function submit() {
-    colourgen();
+    colourGen();
     guess.value = "";
 }
 
