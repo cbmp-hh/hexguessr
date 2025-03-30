@@ -1,6 +1,6 @@
 function decToHex(decValue) {
     var hexValue = decValue.toString(16);
-    if (hexValue.length = 1) {
+    if (hexValue.length == 1) {
         hexValue = "0" + hexValue
     }
     return hexValue
