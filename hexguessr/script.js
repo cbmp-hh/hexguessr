@@ -32,8 +32,8 @@ function deltaE2000(rgb1, rgb2) {
     
     const aC1C2 = (C1 + C2) / 2.0;
     
-    const G = 0.5 * (1 - Math.sqrt(Math.pow(aC1C2, 7) / (Math.pow(aC1C2, 7) + Math.pow(25, 7)));
-    
+    const G = 0.5 * (1 - Math.sqrt(Math.pow(aC1C2, 7) / (Math.pow(aC1C2, 7) + Math.pow(25, 7))));
+
     const a1p = (1.0 + G) * a1;
     const a2p = (1.0 + G) * a2;
     
