@@ -28,7 +28,7 @@
 #guess {
     border: none;
     background-color: dimgrey;
-    color: white;
+    color: var(--colour);
     height: 7vh;
     width: 20vw;
     font-size: 5vh;
