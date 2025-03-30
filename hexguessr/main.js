@@ -1,8 +1,16 @@
-function colourgen() {
+function decToHex(decValue) {
+    var hexValue = decValue.toString(16);
+    if (hexValue.length = 1) {
+        hexValue = "0" + hexValue
+    }
+    return hexValue
+}
+
+function colourGen() {
     var r = Math.floor(Math.random() * 255);
     var g = Math.floor(Math.random() * 255);
     var b = Math.floor(Math.random() * 255);
-    var colour = r.toString(16) + g.toString(16) + b.toString(16);
+    var colour = decToHex(r) + decToHex(g) + decToHex(b);
     var brightness = r + g + b;
     document.documentElement.style.setProperty("--backgroundColour", "#" + colour);
 
@@ -19,5 +27,5 @@ function submit() {
     guess.value = "";
 }
 
-window.onload = colourgen;
+window.onload = colourGen();
 guess = document.getElementById("guess");
