@@ -4,7 +4,7 @@ function colourgen() {
     var b = Math.floor(Math.random() * 255);
     var colour = r.toString(16) + g.toString(16) + b.toString(16);
     var brightness = r + g + b;
-    document.documentElement.style.setProperty("--backgroundColour", "rgb(" + r + ", " + g + ", " + b + ")");
+    document.documentElement.style.setProperty("--backgroundColour", "#" + colour);
 
     if (brightness > 381) {
         document.documentElement.style.setProperty("--colour", "black");
@@ -19,4 +19,5 @@ function submit() {
     guess.value = "";
 }
 
+window.onload = colourgen;
 guess = document.getElementById("guess");
