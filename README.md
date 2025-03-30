@@ -1,6 +1,6 @@
 # HexGuessr - A Color Guessing Game 🌈🎮
 
-![HexGuessr Logo](https://via.placeholder.com/150/FFFFFF/000000?text=HexGuessr) *(Replace with actual logo if available)*
+*[Insert HexGuessr Logo]*
 
 ## Table of Contents
 - [About](#about)
