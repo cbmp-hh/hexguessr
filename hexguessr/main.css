@@ -23,6 +23,7 @@
     height: 10vh;
     width: 25vw;
     font-size: 5vh;
+    margin-bottom: 1vh;
 }
 
 #guess {
