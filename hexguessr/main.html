@@ -7,13 +7,13 @@
         <title>Hexguessr</title>
     </head>
     <body>
-        <div id="colour">
+        <div id="colour" onload="colourgen()">
             <p id="prompt">Guess the hex code of the background</p>
             <div id="input-field">
                 <p>#</p>
                 <input type="text" id="guess">
             </div>
-            <button id="submit" onclick="submit">Guess</button>
+            <button id="submit" onclick="submit()">Guess</button>
         </div>
         <script src="main.js"></script>
     </body>

@@ -22,6 +22,7 @@
     border-radius: 1vh;
     height: 10vh;
     width: 25vw;
+    font-size: 5vh;
 }
 
 #guess {
@@ -30,8 +31,18 @@
     color: white;
     height: 7vh;
     width: 20vw;
+    font-size: 5vh;
+    
+}
+
+#guess:focus {
+    outline: none;
 }
 
 #submit {
     background-color: dimgrey;
+    height: 7vh;
+    width: 25vw;
+    font-size: 5vh;
+    border-radius: 1vh;
 }

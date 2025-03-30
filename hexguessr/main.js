@@ -19,5 +19,4 @@ function submit() {
     guess.value = "";
 }
 
-window.onload = colourgen;
 guess = document.getElementById("guess");
