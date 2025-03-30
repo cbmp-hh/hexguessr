@@ -2,7 +2,7 @@ function colourgen() {
     var r = Math.floor(Math.random() * 255);
     var g = Math.floor(Math.random() * 255);
     var b = Math.floor(Math.random() * 255);
-    var colour = decimal.toString(r) + decimal.toString(g) + decimal.toString(b);
+    var colour = r.toString(16) + g.toString(16) + b.toString(16);
     var brightness = r + g + b;
     document.documentElement.style.setProperty("--backgroundColour", "#" + colour);
 
@@ -14,4 +14,10 @@ function colourgen() {
     }
 }
 
+function submit() {
+    colourgen();
+    guess.value = "";
+}
+
 window.onload = colourgen;
+guess = document.getElementById("guess");

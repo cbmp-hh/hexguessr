@@ -9,8 +9,27 @@
     align-items: center;
 }
 
+#prompt {
+    font-size: 5vh;
+}
+
 #input-field {
     background-color: dimgrey;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1vh;
+    height: 10vh;
+    width: 25vw;
+}
+
+#guess {
+    border: none;
+    background-color: dimgrey;
+    color: white;
+    height: 7vh;
+    width: 20vw;
 }
 
 #submit {
