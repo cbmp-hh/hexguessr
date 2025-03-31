@@ -2,6 +2,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: 7vh;
+}
+
+#accounts {
+    display: flex;
+    flex-direction: row;
+    color: black;
+    font-size: 5vh;
 }
 
 #colour {
@@ -9,7 +17,7 @@
     color: var(--colour);
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 93vh;
     width: 100vw;
     justify-content: center;
     align-items: center;
@@ -28,7 +36,7 @@
     border-radius: 1vh;
     height: 10vh;
     width: 25vw;
-    font-size: 5vh;
+    font-size: var(--fontSize);
     margin-bottom: 1vh;
 }
 
@@ -38,8 +46,7 @@
     color: var(--colour);
     height: 7vh;
     width: 20vw;
-    font-size: 5vh;
-    
+    font-size: var(--fontSize);
 }
 
 #guess:focus {

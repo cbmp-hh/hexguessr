@@ -22,10 +22,20 @@ function colourGen() {
     }
 }
 
+function load() {
+    colourGen();
+    if (document.documentElement.clientHeight > document.documentElement.clientWidth) {
+        document.documentElement.style.setProperty("--fontSize", "5vw");
+    }
+    else {
+        document.documentElement.style.setProperty("--fontSize", "5vh");
+    }
+}
+
 function submit() {
     colourGen();
     guess.value = "";
 }
 
-window.onload = colourGen();
+window.onload = load();
 guess = document.getElementById("guess");
