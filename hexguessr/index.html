@@ -13,9 +13,14 @@
             <input type="text" id="guessInput" placeholder="#RRGGBB" maxlength="7">
         </div>
         <button id="actionButton">Guess</button>
-        <div class="result" id="result"></div>
+        <div class="result-container" id="resultContainer">
+            <div class="color-comparison">
+                <div class="color-box" id="actualColor"></div>
+                <div class="color-box" id="guessedColor"></div>
+            </div>
+            <div class="result" id="result"></div>
+        </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>

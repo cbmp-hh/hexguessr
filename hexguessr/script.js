@@ -1,6 +1,4 @@
-// CIEDE2000 color difference algorithm
 function deltaE2000(rgb1, rgb2) {
-    // Convert RGB to Lab
     function rgb2lab(rgb) {
         let r = rgb[0] / 255, g = rgb[1] / 255, b = rgb[2] / 255;
         r = r > 0.04045 ? Math.pow((r + 0.055) / 1.055, 2.4) : r / 12.92;
@@ -18,7 +16,6 @@ function deltaE2000(rgb1, rgb2) {
         return [(116 * y) - 16, 500 * (x - y), 200 * (y - z)];
     }
     
-    // CIEDE2000 implementation
     const lab1 = rgb2lab(rgb1);
     const lab2 = rgb2lab(rgb2);
     
@@ -33,7 +30,7 @@ function deltaE2000(rgb1, rgb2) {
     const aC1C2 = (C1 + C2) / 2.0;
     
     const G = 0.5 * (1 - Math.sqrt(Math.pow(aC1C2, 7) / (Math.pow(aC1C2, 7) + Math.pow(25, 7))));
-
+    
     const a1p = (1.0 + G) * a1;
     const a2p = (1.0 + G) * a2;
     
@@ -99,20 +96,14 @@ function deltaE2000(rgb1, rgb2) {
     return dE;
 }
 
-// Helper function to convert hex to RGB
 function hexToRgb(hex) {
-    // Remove # if present
     hex = hex.replace('#', '');
-    
-    // Parse r, g, b values
     const r = parseInt(hex.substring(0, 2), 16);
     const g = parseInt(hex.substring(2, 4), 16);
     const b = parseInt(hex.substring(4, 6), 16);
-    
     return [r, g, b];
 }
 
-// Generate random hex color
 function getRandomColor() {
     const letters = '0123456789ABCDEF';
     let color = '#';
@@ -122,74 +113,61 @@ function getRandomColor() {
     return color;
 }
 
-// DOM elements
 const body = document.body;
 const guessInput = document.getElementById('guessInput');
 const actionButton = document.getElementById('actionButton');
+const resultContainer = document.getElementById('resultContainer');
 const resultDiv = document.getElementById('result');
+const actualColorBox = document.getElementById('actualColor');
+const guessedColorBox = document.getElementById('guessedColor');
 
-// Game state
 let currentColor = '';
 let isGuessing = true;
 
-// Initialize game
 function initGame() {
     currentColor = getRandomColor();
     body.style.backgroundColor = currentColor;
     guessInput.value = '';
-    resultDiv.textContent = '';
-    resultDiv.className = 'result';
+    resultContainer.classList.add('hidden');
     actionButton.textContent = 'Guess';
     isGuessing = true;
 }
 
-// Handle button click
 actionButton.addEventListener('click', function() {
     if (isGuessing) {
-        // Guess phase
         const userGuess = guessInput.value.trim().toUpperCase();
         
         if (!/^#[0-9A-F]{6}$/i.test(userGuess)) {
             resultDiv.textContent = 'Please enter a valid hex color (e.g., #RRGGBB)';
-            resultDiv.className = 'result incorrect';
+            resultContainer.classList.remove('hidden');
             return;
         }
         
         const actualRgb = hexToRgb(currentColor);
         const guessedRgb = hexToRgb(userGuess);
-        
         const difference = deltaE2000(actualRgb, guessedRgb);
         
+        actualColorBox.style.backgroundColor = currentColor;
+        guessedColorBox.style.backgroundColor = userGuess;
         resultDiv.textContent = `Color difference: ${difference.toFixed(2)} (lower is better)`;
-        resultDiv.className = difference < 5 ? 'result correct' : 'result incorrect';
-        
+        resultContainer.classList.remove('hidden');
         actionButton.textContent = 'Next';
         isGuessing = false;
     } else {
-        // Next phase
         initGame();
     }
 });
 
-// Input validation
 guessInput.addEventListener('input', function() {
     let value = this.value.toUpperCase();
-    
-    // Auto-add # if not present
     if (value.length > 0 && value[0] !== '#') {
         value = '#' + value;
     }
-    
-    // Filter invalid characters
     value = value.replace(/[^#0-9A-F]/g, '');
-    
-    // Limit length
     if (value.length > 7) {
         value = value.substring(0, 7);
     }
-    
     this.value = value;
 });
 
-// Start the game
 initGame();
