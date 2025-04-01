@@ -9,7 +9,27 @@
     display: flex;
     flex-direction: row;
     color: black;
-    font-size: 5vh;
+    font-size: 3vh;
+    height: 5vh
+}
+
+#login {
+    border: 2px;
+    border-radius: 1vh;
+    background-color: white;
+}
+
+#login:hover {
+    background-color: lightgrey;
+}
+
+#signup {
+    border-radius: 1vh;
+    background-color: black;
+}
+
+#signup:hover {
+    background-color: #2a2a2a;
 }
 
 #colour {
