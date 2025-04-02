@@ -10,12 +10,14 @@
     flex-direction: row;
     color: black;
     font-size: 3vh;
-    height: 5vh;
+    height: 7vh;
     justify-content: center;
     align-items: center;
 }
 
 #login {
+    height: 7vh;
+    width: 10vw;
     border: 2px;
     border-radius: 1vh;
     background-color: white;
@@ -32,6 +34,8 @@
 }
 
 #signup {
+    height: 7vh;
+    width: 10vw;
     color: white;
     border-radius: 1vh;
     background-color: black;
