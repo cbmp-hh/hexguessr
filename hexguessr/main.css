@@ -9,7 +9,6 @@
     display: flex;
     flex-direction: row;
     color: black;
-    font-size: 3vh;
     height: 7vh;
     justify-content: center;
     align-items: center;
@@ -24,24 +23,25 @@
 }
 
 #login > a {
+    font-size: 3vh;
     text-decoration: none;
     color: black;
 }
 
 #login:hover {
-    text-decoration: none;
     background-color: lightgrey;
 }
 
 #signup {
     height: 7vh;
     width: 10vw;
-    color: white;
     border-radius: 1vh;
     background-color: black;
 }
 
 #signup > a {
+    font-size: 3vh;
+    text-decoration: none;
     color: white;
 }
 
