@@ -16,10 +16,11 @@
 
 #login {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-self: center;
     height: 5vh;
-    width: 5vw;
+    width: 7vw;
     border: 2px;
     border-radius: 1vh;
     background-color: white;
@@ -37,10 +38,11 @@
 
 #signup {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-self: center;
     height: 5vh;
-    width: 5vw;
+    width: 7vw;
     border-radius: 1vh;
     background-color: black;
 }
