@@ -21,10 +21,10 @@
     align-items: center;
     height: 5vh;
     width: 7vw;
-    border: 2px;
+    border: 2px solid dimgrey;
     border-radius: 1vh;
-    border-color: black;
     background-color: white;
+    margin-left: 2vw
 }
 
 #login > a {
