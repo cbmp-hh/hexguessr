@@ -33,8 +33,8 @@ function load() {
 }
 
 function submit() {
-    colourGen();
     console.log(colourDifference(guess.value, colour));
+    colourGen();
     guess.value = "";
 }
 
