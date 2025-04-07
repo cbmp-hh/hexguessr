@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HexGuessr - A Color Guessing Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">HG</div>
+        <h1>HexGuessr</h1>
+        <p>A Color Guessing Game 🌈🎮</p>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>About</h2>
+            <p>HexGuessr is a fun, interactive color guessing game inspired by GeoGuessr. Test your color perception skills by guessing hex codes of randomly generated colors! Play solo or challenge friends in multiplayer mode with specialized color "maps" that focus on specific color ranges.</p>
+            <div class="game-container">
+                <div class="color-display" id="colorDisplay"></div>
+                <div class="guess-input">
+                    <input type="text" id="hexInput" placeholder="#FFFFFF" maxlength="7">
+                    <div class="color-preview" id="inputPreview"></div>
+                </div>
+                <button class="btn" id="submitGuess">Submit Guess</button>
+                <div class="score-display" id="scoreDisplay">Score: 0</div>
+                <div class="result-message" id="resultMessage"></div>
+                <button class="btn btn-outline" id="newColor">New Color</button>
+            </div>
+        </section>
+
+        <section id="features">
+            <h2>Features</h2>
+            <ul>
+                <li>🔍 <strong>Color Guessing</strong>: Guess the hex code of the displayed color</li>
+                <li>🎯 <strong>CIEDE2000 Scoring</strong>: Accurate color difference algorithm for fair scoring</li>
+                <li>🕹️ <strong>Multiple Game Modes</strong>: Singleplayer practice or competitive multiplayer</li>
+                <li>⏱️ <strong>Timed Rounds</strong>: 1-minute guessing periods in multiplayer</li>
+                <li>🗺️ <strong>Color Maps</strong>: Specialized color ranges like monochrome, pure hues, etc.</li>
+                <li>🛠️ <strong>Custom Maps</strong>: Create your own color maps with custom parameters</li>
+                <li>🌐 <strong>Multiplayer Rooms</strong>: Play with friends in real-time</li>
+            </ul>
+        </section>
+
+        <section id="game-modes">
+            <h2>Game Modes</h2>
+            <div class="game-modes">
+                <div class="game-mode-card">
+                    <h3>Singleplayer</h3>
+                    <ul>
+                        <li>Unlimited guessing rounds</li>
+                        <li>Immediate feedback with your score</li>
+                        <li>Color resets after each guess</li>
+                        <li>Track your personal best scores</li>
+                    </ul>
+                    <button class="btn" id="playSingleplayer">Play Singleplayer</button>
+                </div>
+                <div class="game-mode-card">
+                    <h3>Multiplayer</h3>
+                    <ul>
+                        <li>Join rooms with friends or random players</li>
+                        <li>1-minute timer per round</li>
+                        <li>All players guess simultaneously</li>
+                        <li>Leaderboard shows who's the most color-accurate</li>
+                    </ul>
+                    <button class="btn" id="playMultiplayer">Play Multiplayer</button>
+                </div>
+            </div>
+
+            <div class="tab-container" id="multiplayerTab" style="display: none;">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="create">Create Room</button>
+                    <button class="tab-button" data-tab="join">Join Room</button>
+                </div>
+                <div class="tab-content active" id="create">
+                    <h3>Create a New Room</h3>
+                    <div class="form-group">
+                        <label for="playerName">Your Name:</label>
+                        <input type="text" id="playerName" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="colorMapSelect">Color Map:</label>
+                        <select id="colorMapSelect">
+                            <option value="full">Full Spectrum</option>
+                            <option value="monochrome">Monochrome</option>
+                            <option value="pure">Pure Hues</option>
+                            <option value="pastel">Pastel World</option>
+                            <option value="dark">Dark Mode</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="roundsSelect">Number of Rounds:</label>
+                        <select id="roundsSelect">
+                            <option value="3">3 Rounds</option>
+                            <option value="5" selected>5 Rounds</option>
+                            <option value="10">10 Rounds</option>
+                        </select>
+                    </div>
+                    <button class="btn" id="createRoom">Create Room</button>
+                </div>
+                <div class="tab-content" id="join">
+                    <h3>Join an Existing Room</h3>
+                    <div class="form-group">
+                        <label for="joinPlayerName">Your Name:</label>
+                        <input type="text" id="joinPlayerName" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="roomCode">Room Code:</label>
+                        <input type="text" id="roomCode" placeholder="Enter room code">
+                    </div>
+                    <button class="btn" id="joinRoom">Join Room</button>
+                </div>
+            </div>
+
+            <div class="multiplayer-room" id="multiplayerRoom" style="display: none;">
+                <h3>Room: <span id="displayRoomCode"></span></h3>
+                <div class="room-code" id="roomCodeDisplay"></div>
+                <p>Share this code with friends to join the game!</p>
+                
+                <div class="player-list">
+                    <h4>Players</h4>
+                    <div id="playerList"></div>
+                </div>
+                
+                <button class="btn" id="startGame">Start Game</button>
+                <button class="btn btn-outline" id="leaveRoom">Leave Room</button>
+                
+                <div id="gameArea" style="display: none;">
+                    <div class="timer" id="gameTimer">1:00</div>
+                    <div class="color-display" id="multiplayerColorDisplay"></div>
+                    <div class="guess-input">
+                        <input type="text" id="multiplayerHexInput" placeholder="#FFFFFF" maxlength="7">
+                        <div class="color-preview" id="multiplayerInputPreview"></div>
+                    </div>
+                    <button class="btn" id="submitMultiplayerGuess">Submit Guess</button>
+                </div>
+                
+                <div class="leaderboard" id="leaderboard" style="display: none;">
+                    <h4>Round Results</h4>
+                    <div id="leaderboardContent"></div>
+                    <button class="btn" id="nextRound" style="display: none;">Next Round</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="color-maps">
+            <h2>Color Maps</h2>
+            <p>Choose from various color maps to test different aspects of your color perception:</p>
+            <div class="color-maps">
+                <div class="color-map-card">
+                    <div class="color-map-swatch" style="background: linear-gradient(135deg, #FF0000, #FFFF00, #00FF00, #00FFFF, #0000FF, #FF00FF, #FF0000);"></div>
+                    <h4>Full Spectrum</h4>
+                    <p>All possible colors</p>
+                </div>
+                <div class="color-map-card">
+                    <div class="color-map-swatch" style="background: linear-gradient(135deg, #000000, #333333, #666666, #999999, #CCCCCC, #FFFFFF);"></div>
+                    <h4>Monochrome</h4>
+                    <p>Shades of black, white, and gray</p>
+                </div>
+                <div class="color-map-card">
+                    <div class="color-map-swatch" style="background: linear-gradient(135deg, #FF0000, #FF9900, #FFFF00, #33FF00, #0099FF, #6633FF);"></div>
+                    <h4>Pure Hues</h4>
+                    <p>Fully saturated colors only</p>
+                </div>
+                <div class="color-map-card">
+                    <div class="color-map-swatch" style="background: linear-gradient(135deg, #FFD1DC, #FFFACD, #E0FFFF, #D8BFD8, #FFDAB9);"></div>
+                    <h4>Pastel World</h4>
+                    <p>Soft, light colors</p>
+                </div>
+                <div class="color-map-card">
+                    <div class="color-map-swatch" style="background: linear-gradient(135deg, #000033, #330033, #003300, #333300, #000066);"></div>
+                    <h4>Dark Mode</h4>
+                    <p>Deep, dark colors</p>
+                </div>
+                <div class="color-map-card">
+                    <div class="color-map-swatch" style="background: linear-gradient(135deg, #FF0000, #00FF00, #0000FF);"></div>
+                    <h4>Custom Maps</h4>
+                    <p>Create your own color parameters</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="installation">
+            <h2>Installation</h2>
+            <p>To run HexGuessr locally:</p>
+            <ol>
+                <li>Clone the repository:
+                    <pre><code>git clone https://github.com/yourusername/hexguessr.git</code></pre>
+                </li>
+                <li>Install dependencies:
+                    <pre><code>cd hexguessr
+npm install</code></pre>
+                </li>
+                <li>Start the development server:
+                    <pre><code>npm run dev</code></pre>
+                </li>
+                <li>Open your browser to <code>http://localhost:3000</code></li>
+            </ol>
+        </section>
+
+        <section id="contributing">
+            <h2>Contributing</h2>
+            <p>Contributions are welcome! Please follow these steps:</p>
+            <ol>
+                <li>Fork the project</li>
+                <li>Create your feature branch (<code>git checkout -b feature/AmazingFeature</code>)</li>
+                <li>Commit your changes (<code>git commit -m 'Add some AmazingFeature'</code>)</li>
+                <li>Push to the branch (<code>git push origin feature/AmazingFeature</code>)</li>
+                <li>Open a Pull Request</li>
+            </ol>
+        </section>
+
+        <section id="license">
+            <h2>License</h2>
+            <p>Distributed under the MIT License. See <code>LICENSE</code> for more information.</p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <h3>HexGuessr</h3>
+            <p>How well do you really know colors? 🎨</p>
+            <div class="footer-links">
+                <a href="#">GitHub</a>
+                <a href="#">Twitter</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <p>&copy; 2023 HexGuessr. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/ciede2000.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
