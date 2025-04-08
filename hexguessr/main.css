@@ -110,8 +110,8 @@
 #guessColour {
     height: 50px;
     width: 50px;
-    border: 5px solid var(--colour);
-    border-radius: 25px;
+    border: 2px solid var(--colour);
+    border-radius: 50px;
     background-color: var(--guessColour);
 }
 

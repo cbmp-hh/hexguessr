@@ -33,13 +33,13 @@ function load() {
 }
 
 function submit() {
-    document.documentElement.style.setProperty("--guessColour", guess.value);
+    document.documentElement.style.setProperty("--guessColour", "#" + guess.value);
     colourDiv.insertAdjacentHTML("beforeend", `
 <div class="results">
     <p>Your colour: </p>
     <div id="guessColour"></div>
 </div>
-<p>Answer: ${colour}<p>
+<p>Answer: #${colour}<p>
 <p>Colour difference: ${colourDifference(guess.value, colour)}
     `);
 }
