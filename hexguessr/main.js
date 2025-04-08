@@ -34,7 +34,7 @@ function load() {
 
 function submit() {
     document.documentElement.style.setProperty("--guessColour", guess.value);
-    colourDiv.appendChild(`
+    colourDiv.insertAdjacentHtml("beforeend", `
 <div class="results">
     <p>Your colour: </p>
     <div id="guessColour"></div>
