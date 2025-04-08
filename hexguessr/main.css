@@ -106,3 +106,18 @@
     font-size: 5vh;
     border-radius: 1vh;
 }
+
+#guessColour {
+    height: 50px;
+    width: 50px;
+    border: 5px solid var(--colour);
+    border-radius: 25px;
+    background-color: var(--guessColour);
+}
+
+.results {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
