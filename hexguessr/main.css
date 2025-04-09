@@ -99,19 +99,20 @@
     outline: none;
 }
 
-#submit {
+#submit #retry {
     background-color: dimgrey;
     height: 7vh;
     width: 25vw;
     font-size: 5vh;
     border-radius: 1vh;
+    margin-bottom: 1vh;
 }
 
 #guessColour {
-    height: 50px;
-    width: 50px;
-    border: 2px solid var(--colour);
-    border-radius: 50px;
+    height: 35px;
+    width: 35px;
+    border: 3px solid var(--colour);
+    border-radius: 35px;
     background-color: var(--guessColour);
 }
 

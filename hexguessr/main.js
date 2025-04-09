@@ -34,6 +34,7 @@ function load() {
 
 function submit() {
     document.documentElement.style.setProperty("--guessColour", "#" + guess.value);
+    document.getElementById("submit").setAttribute("onclick", "retry()");
     colourDiv.insertAdjacentHTML("beforeend", `
 <div class="results">
     <p>Your colour: </p>
@@ -92,4 +93,4 @@ function colourDifference(hex1, hex2) {
 
 window.onload = load();
 guess = document.getElementById("guess");
-colourDiv = document.getElementById("colour")
+colourDiv = document.getElementById("colour");
