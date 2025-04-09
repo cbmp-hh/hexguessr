@@ -10,7 +10,7 @@ function colourGen() {
     r = Math.floor(Math.random() * 255);
     g = Math.floor(Math.random() * 255);
     b = Math.floor(Math.random() * 255);
-    colour = (decToHex(r) + decToHex(g) + decToHex(b)).toUpperCase;
+    colour = (decToHex(r) + decToHex(g) + decToHex(b)).toUpperCase();
     brightness = r + g + b;
     document.documentElement.style.setProperty("--backgroundColour", "#" + colour);
 
@@ -26,8 +26,7 @@ function load() {
     colourGen();
     if (document.documentElement.clientHeight > document.documentElement.clientWidth) {
         document.documentElement.style.setProperty("--fontSize", "5vw");
-    }
-    else {
+    } else {
         document.documentElement.style.setProperty("--fontSize", "5vh");
     }
 }
