@@ -34,7 +34,7 @@ function load() {
 
 function submit() {
     document.documentElement.style.setProperty("--guessColour", "#" + guess.value);
-    document.getElementById("submit").setAttribute("onclick", "retry()");
+    submitButton.setAttribute("onclick", "retry()");
     colourDiv.insertAdjacentHTML("beforeend", `
 <div id="results-container">
     <div class="results">
@@ -49,6 +49,7 @@ function submit() {
 
 function retry() {
     document.getElementById("results-container").remove();
+    submitButton.setAttribute("onclick", "submit()");
     colourGen();
     guess.value = "";
 }
@@ -96,3 +97,4 @@ function colourDifference(hex1, hex2) {
 window.onload = load();
 guess = document.getElementById("guess");
 colourDiv = document.getElementById("colour");
+submitButton = document.getElementById("submit");
