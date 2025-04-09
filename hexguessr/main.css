@@ -99,7 +99,7 @@
     outline: none;
 }
 
-#submit #retry {
+#submit, #retry {
     background-color: dimgrey;
     height: 7vh;
     width: 25vw;
