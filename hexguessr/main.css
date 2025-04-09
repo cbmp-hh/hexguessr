@@ -108,7 +108,7 @@
     margin-bottom: 1vh;
 }
 
-#guessColour {
+#guess-colour {
     height: 35px;
     width: 35px;
     border: 3px solid var(--colour);

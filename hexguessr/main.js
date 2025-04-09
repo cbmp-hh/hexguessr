@@ -36,16 +36,19 @@ function submit() {
     document.documentElement.style.setProperty("--guessColour", "#" + guess.value);
     document.getElementById("submit").setAttribute("onclick", "retry()");
     colourDiv.insertAdjacentHTML("beforeend", `
-<div class="results">
-    <p>Your colour: </p>
-    <div id="guessColour"></div>
-</div>
-<p>Answer: #${colour}<p>
-<p>Colour difference: ${colourDifference(guess.value, colour)}
+<span class="results-container">
+    <div class="results">
+        <p>Your colour: </p>
+        <div id="guess-colour"></div>
+    </div>
+    <p>Answer: #${colour}<p>
+    <p>Colour difference: ${colourDifference(guess.value, colour)}
+</span>
     `);
 }
 
 function retry() {
+    document.getElementById("results-container").remove;
     colourGen();
     guess.value = "";
 }
