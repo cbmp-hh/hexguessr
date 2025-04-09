@@ -10,7 +10,7 @@ function colourGen() {
     r = Math.floor(Math.random() * 255);
     g = Math.floor(Math.random() * 255);
     b = Math.floor(Math.random() * 255);
-    colour = decToHex(r) + decToHex(g) + decToHex(b);
+    colour = (decToHex(r) + decToHex(g) + decToHex(b)).toUpperCase;
     brightness = r + g + b;
     document.documentElement.style.setProperty("--backgroundColour", "#" + colour);
 
