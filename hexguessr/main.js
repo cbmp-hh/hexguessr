@@ -36,17 +36,19 @@ function submit() {
     document.documentElement.style.setProperty("--guessColour", "#" + guess.value);
     document.getElementById("submit").setAttribute("onclick", "retry()");
     colourDiv.insertAdjacentHTML("beforeend", `
+<div id="results-container">
     <div class="results">
         <p>Your colour: </p>
         <div id="guess-colour"></div>
     </div>
     <div class="results"><p>Answer: #${colour}</p></div>
     <div class="results"><p>Colour difference: ${colourDifference(guess.value, colour)}</p></div>
+</div>
     `);
 }
 
 function retry() {
-    document.getElementsByClassName("results").remove;
+    document.getElementById("results-container").remove();
     colourGen();
     guess.value = "";
 }
@@ -89,8 +91,7 @@ function ciede2000(lab1, lab2) {
 function colourDifference(hex1, hex2) {
     return ciede2000(hexToLAB(hex1), hexToLAB(hex2));
 }
-
-//trust AI
+//trust AI 56-93
 
 window.onload = load();
 guess = document.getElementById("guess");

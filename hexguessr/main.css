@@ -114,6 +114,7 @@
     border: 3px solid var(--colour);
     border-radius: 35px;
     background-color: var(--guessColour);
+    margin-left: 5px;
 }
 
 .results {
