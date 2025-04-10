@@ -99,7 +99,7 @@ function doubleLetters(str) {
 }
 
 function colourDifference(hex1, hex2) {
-    if (hex1 == 3) {
+    if (hex1.length == 3) {
         hex1 = doubleLetters(hex1);
     }
     return ciede2000(hexToLAB(hex1), hexToLAB(hex2));
