@@ -104,7 +104,7 @@ function colourDifference(hex1, hex2) {
     }
     return ciede2000(hexToLAB(hex1), hexToLAB(hex2));
 }
-//trust AI 56-93
+//trust AI 62-107
 
 window.onload = load();
 guess = document.getElementById("guess");
