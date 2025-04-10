@@ -94,10 +94,12 @@ function ciede2000(lab1, lab2) {
     return Math.sqrt((dL / SL) ** 2 + (dC / SC) ** 2 + (dH / SH) ** 2);
 }
 
+function doubleLetters(str) {
+    return str.split('').map(char => char + char).join('');
+}
+
 function colourDifference(hex1, hex2) {
-    if (hex1 == 3) {
-        hex1 = hex1.split('').map(char => char + char).join(''); //thanks AI
-    }
+    if (hex1 == 3) {doubleLetters(hex1);}
     return ciede2000(hexToLAB(hex1), hexToLAB(hex2));
 }
 //trust AI 56-93
