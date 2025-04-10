@@ -99,7 +99,9 @@ function doubleLetters(str) {
 }
 
 function colourDifference(hex1, hex2) {
-    if (hex1 == 3) {doubleLetters(hex1);}
+    if (hex1 == 3) {
+        hex1 = doubleLetters(hex1);
+    }
     return ciede2000(hexToLAB(hex1), hexToLAB(hex2));
 }
 //trust AI 56-93
