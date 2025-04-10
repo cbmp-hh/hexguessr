@@ -32,10 +32,10 @@ function load() {
 }
 
 function submit() {
-    if (!/^([0-9A-F]{3}|[0-9A-F]{6})$/i.test(guess)) {
-        alert("Please enter a valid hex code.");
+    if (!/^([0-9A-F]{3}){1,2}$/.test(guess.value()))/*thanks stackoverflow*/ {
+        alert("Please enter a valid hex code. ");
         return;
-    }
+    } 
     document.documentElement.style.setProperty("--guessColour", "#" + guess.value);
     submitButton.setAttribute("onclick", "retry()");
     submitButton.innerHTML = "Try again";
