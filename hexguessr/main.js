@@ -95,6 +95,9 @@ function ciede2000(lab1, lab2) {
 }
 
 function colourDifference(hex1, hex2) {
+    if (hex1 == 3) {
+        hex1 = hex1.split('').map(char => char + char).join(''); //thanks AI
+    }
     return ciede2000(hexToLAB(hex1), hexToLAB(hex2));
 }
 //trust AI 56-93
