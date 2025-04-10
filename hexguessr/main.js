@@ -32,7 +32,7 @@ function load() {
 }
 
 function submit() {
-    if (!(/^[0-9A-F]{6}$/i.test(guess) || /^[0-9A-F]{3}$/i.test(guess)))/*thanks stackoverflow*/ {
+    if (!/^([0-9A-F]{3}){1,2}$/i.test(guess))/*thanks stackoverflow*/ {
         alert("Please enter a valid hex code. ");
         return;
     } 
