@@ -104,9 +104,15 @@ function colourDifference(hex1, hex2) {
     }
     return ciede2000(hexToLAB(hex1), hexToLAB(hex2));
 }
-//trust AI 62-107
+//trust AI for the difference algorithm
 
 window.onload = load();
 guess = document.getElementById("guess");
 colourDiv = document.getElementById("colour");
 submitButton = document.getElementById("submit");
+
+colourDiv.addEventListener("keyup", function (event) {
+    if (event.keyCode == 13) {
+        submitButton.getAttribute("onclick");
+    }
+});
