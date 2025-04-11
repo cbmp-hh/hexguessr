@@ -113,6 +113,6 @@ submitButton = document.getElementById("submit");
 
 guess.addEventListener("keyup", function (event) {
     if (event.keyCode == 13) {
-        submitButton.click;
+        submitButton.click();
     }
 });
