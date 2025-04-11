@@ -111,7 +111,7 @@ guess = document.getElementById("guess");
 colourDiv = document.getElementById("colour");
 submitButton = document.getElementById("submit");
 
-colourDiv.addEventListener("keyup", function (event) {
+guess.addEventListener("keyup", function (event) {
     if (event.keyCode == 13) {
         submitButton.getAttribute("onclick");
     }
